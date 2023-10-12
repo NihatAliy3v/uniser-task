@@ -9,11 +9,20 @@ const changeBtn = (value, color) => {
   startBtn.style.backgroundColor = color;
 };
 
+const gameOver = () => {
+  correctValue = null;
+  countGuess = 0;
+  progressBar.style.width = "0";
+  guessInput.value = "";
+  guessValue.innerHTML = "";
+  changeBtn("Start a new game", "#778699");
+};
+
 let correctValue = null;
 const newGame = () => {
   correctValue = (Math.random() * 100).toFixed();
-  changeBtn("Game started", "green");
   guessValue.innerHTML = "";
+  changeBtn("Change Number", "orange");
 };
 startBtn.addEventListener("click", newGame);
 
@@ -25,15 +34,6 @@ let countGuess = 0;
 const progress = () => {
   countGuess++;
   progressBar.style.width = `${countGuess * 10}%`;
-};
-
-const gameOver = () => {
-  correctValue = null;
-  countGuess = 0;
-  changeBtn("Start a new game", "#778699");
-  progressBar.style.width = "0";
-  guessInput.value = "";
-  guessValue.innerHTML = "";
 };
 
 const compareGuess = () => {
