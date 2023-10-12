@@ -112,9 +112,10 @@ main .home .guess .progress-bar {
 }
 main .home .guess .progress-bar .progressing {
   position: absolute;
-  width: 1%;
   height: 100%;
   background-color: #038120;
+  min-width: 1%;
+  width: 0;
 }
 main .home .guess .related-guess {
   font-size: 28px;
@@ -131,4 +132,10 @@ main .home .guess .recorded-guesses p {
   line-height: 15px;
   color: #140606;
   text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  main .home .guess .progress-bar {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

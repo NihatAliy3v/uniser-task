@@ -8,7 +8,6 @@ const changeBtn = (value, color) => {
   startBtn.style.backgroundColor = color;
 };
 
-
 let correctValue = null;
 const newGame = () => {
   correctValue = (Math.random() * 100).toFixed();
@@ -20,13 +19,6 @@ startBtn.addEventListener("click", newGame);
 const getTips = (tip) => {
   guessValue.innerHTML = ` You guessed ${guessInput.value} that is ${tip}`;
 };
-
-// const checkStart = () => {
-//   if (correctValue == null) {
-//     alert("oyuna basla");
-//     return;
-//   }
-// };
 
 const guesscheck = (e) => {
   e.preventDefault();

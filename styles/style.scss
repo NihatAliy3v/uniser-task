@@ -79,10 +79,11 @@ main {
         border: 2px solid #038120;
         position: relative;
         .progressing {
-            position: absolute;
-            width: 1%;
-            height: 100%;
-            background-color: #038120;
+          position: absolute;
+          height: 100%;
+          background-color: #038120;
+          min-width: 1%;
+          width: 0;
         }
       }
       .related-guess {
@@ -101,6 +102,18 @@ main {
           line-height: 15px;
           color: #140606;
           text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  main {
+    .home {
+      .guess {
+        .progress-bar {
+          width: 100%;
         }
       }
     }
