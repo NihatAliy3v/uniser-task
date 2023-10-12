@@ -8,6 +8,7 @@ const changeBtn = (value, color) => {
   startBtn.style.backgroundColor = color;
 };
 
+
 let correctValue = null;
 const newGame = () => {
   correctValue = (Math.random() * 100).toFixed();
