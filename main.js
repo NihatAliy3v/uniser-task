@@ -67,12 +67,13 @@ const compareGuess = () => {
       getTips("true");
       openModal("Winner");
       guessValue.innerHTML = "";
+      guessBtn.disabled = true;
     } else if (correctValue > guessNumber + 10) {
       getTips("too low");
     } else if (correctValue > guessNumber) {
       getTips("low");
     } else if (correctValue < guessNumber - 10) {
-      getTips("to high");
+      getTips("too high");
     } else if (correctValue < guessNumber) {
       getTips("high");
     }
@@ -86,6 +87,7 @@ const guesscheck = (e) => {
   if (countGuess === 10) {
     openModal("Game Over");
     guessValue.innerHTML = "";
+    guessBtn.disabled = true;
     return;
   }
 };
