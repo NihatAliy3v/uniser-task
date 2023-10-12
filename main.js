@@ -3,7 +3,9 @@ const guessBtn = document.querySelector(".guess-btn");
 const guessValue = document.querySelector(".related-guess");
 const startBtn = document.querySelector(".btn-start");
 const progressBar = document.querySelector(".progressing");
-
+const modal = document.querySelector(".overlay");
+const modalBtn = document.querySelector(".modal-btn");
+const modalDescription = document.querySelector(".description");
 guessInput.disabled = true;
 guessBtn.disabled = true;
 guessBtn.style.opacity = 0.4;
@@ -45,6 +47,16 @@ const progress = () => {
   progressBar.style.width = `${countGuess * 10}%`;
 };
 
+const openModal = (modalName) => {
+  modal.style.display = "block";
+  modalDescription.innerHTML = modalName;
+};
+
+modalBtn.addEventListener("click", function () {
+  gameOver();
+  modal.style.display = "none";
+});
+
 const compareGuess = () => {
   let guessNumber = Number(guessInput.value);
   if (isNaN(guessNumber) || guessInput.value === "") {
@@ -53,7 +65,8 @@ const compareGuess = () => {
     progress();
     if (correctValue == guessNumber) {
       getTips("true");
-      gameOver();
+      openModal("Winner");
+      guessValue.innerHTML = "";
     } else if (correctValue > guessNumber + 10) {
       getTips("too low");
     } else if (correctValue > guessNumber) {
@@ -68,13 +81,13 @@ const compareGuess = () => {
 };
 
 const guesscheck = (e) => {
+  compareGuess();
   e.preventDefault();
   if (countGuess === 10) {
-    gameOver();
+    openModal("Game Over");
     guessValue.innerHTML = "";
     return;
   }
-  compareGuess();
 };
 
 guessBtn.addEventListener("click", guesscheck);

@@ -106,6 +106,43 @@ main {
       }
     }
   }
+  .overlay {
+    background-color: rgba(92, 23, 23, 0.106);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    display: none;
+    .modal {
+      position: fixed;
+      width: 400px;
+      height: 250px;
+      background-color: #4f779d;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      .description {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+      .modal-btn {
+        border: none;
+        outline: none;
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1000px) {
