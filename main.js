@@ -4,6 +4,10 @@ const guessValue = document.querySelector(".related-guess");
 const startBtn = document.querySelector(".btn-start");
 const progressBar = document.querySelector(".progressing");
 
+guessInput.disabled = true;
+guessBtn.disabled = true;
+guessBtn.style.opacity = 0.4;
+
 const changeBtn = (value, color) => {
   startBtn.innerHTML = value;
   startBtn.style.backgroundColor = color;
@@ -14,8 +18,10 @@ const gameOver = () => {
   countGuess = 0;
   progressBar.style.width = "0";
   guessInput.value = "";
-  guessValue.innerHTML = "";
   changeBtn("Start a new game", "#778699");
+  guessInput.disabled = true;
+  guessBtn.disabled = true;
+  guessBtn.style.opacity = 0.4;
 };
 
 let correctValue = null;
@@ -23,6 +29,9 @@ const newGame = () => {
   correctValue = (Math.random() * 100).toFixed();
   guessValue.innerHTML = "";
   changeBtn("Change Number", "orange");
+  guessInput.disabled = false;
+  guessBtn.disabled = false;
+  guessBtn.style.opacity = 1;
 };
 startBtn.addEventListener("click", newGame);
 
@@ -60,13 +69,9 @@ const compareGuess = () => {
 
 const guesscheck = (e) => {
   e.preventDefault();
-  if (correctValue == null) {
-    guessInput.value = "";
-    alert("Start a new game");
-    return;
-  }
   if (countGuess === 10) {
     gameOver();
+    guessValue.innerHTML = "";
     return;
   }
   compareGuess();
