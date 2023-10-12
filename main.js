@@ -33,6 +33,7 @@ const gameOver = () => {
   changeBtn("Start a new game", "#778699");
   progressBar.style.width = "0";
   guessInput.value = "";
+  guessValue.innerHTML = "";
 };
 
 const compareGuess = () => {
@@ -61,7 +62,7 @@ const guesscheck = (e) => {
   e.preventDefault();
   if (correctValue == null) {
     guessInput.value = "";
-    alert("oyuna basla");
+    alert("Start a new game");
     return;
   }
   if (countGuess === 10) {
